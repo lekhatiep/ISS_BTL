@@ -12,18 +12,24 @@ namespace ISS_BTL
     public partial class MainForm : Form
     {
         OracleDB OracleDB = new OracleDB();
-        public MainForm()
+        public MainForm(string conn = "")
         {
+            OracleDB.conn = conn;
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            loadData();
+        }
+
+        public void loadData()
+        {
             try
             {
-                string connectionstring = OracleDB.OracleConnString("localhost", "1521", "orcl", "system", "Abc123456");
+                string connectionstring = OracleDB.conn;
 
-                string sql = "select * from dba_users";
+                string sql = "select a.username, email, ten, phone, phongban,created from user_info u join all_users a on a.username = upper(u.username)";
 
                 using (OracleConnection conn = new OracleConnection(connectionstring)) // connect to oracle
                 {
@@ -40,11 +46,16 @@ namespace ISS_BTL
                 }
 
             }
-            catch (Exception ex)
+            catch (OracleException ex)
             {
-                MessageBox.Show("Login fails");
-                throw;
+                MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btn_adduser_Click(object sender, EventArgs e)
+        {
+            AddUserForm addUserForm = new AddUserForm(OracleDB.conn);
+            addUserForm.Show();
         }
     }
 }

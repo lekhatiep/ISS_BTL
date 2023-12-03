@@ -28,27 +28,18 @@ namespace ISS_BTL
                 var pw = txt_pwd.Text;
 
                 string connectionstring = new OracleDB().OracleConnString("localhost", "1521", "qlmhpdb", userName, pw);
-                string sql = "select u.username, email, ten, phone, phongban,created from user_info u join all_users a on a.username = upper(u.username)";
 
-                using (OracleConnection conn = new OracleConnection(connectionstring)) // connect to oracle
-                {
-                    conn.Open(); // open the oracle connection
-                    OracleCommand cmd = new OracleCommand(sql, conn);
-                    OracleDataAdapter oda = new OracleDataAdapter(cmd);
-                    DataSet ds = new DataSet();
-                    oda.Fill(ds);
-                    if (ds.Tables.Count > 0)
-                    {
-                        dataGridView1.DataSource = ds.Tables[0].DefaultView;
-                    }
-                    conn.Close(); // close the oracle connection
-                }
+                OracleConnection conn = new OracleConnection();
+                conn.ConnectionString = connectionstring;
+                conn.Open();
 
+                //
+                MainForm mainForm = new MainForm(connectionstring);
+                mainForm.Show();
             }
-            catch (Exception ex)
+            catch (OracleException ex)
             {
-                MessageBox.Show("Login fails");
-                throw;
+                MessageBox.Show("Login fails:" + ex.Message);
             }
             
         }

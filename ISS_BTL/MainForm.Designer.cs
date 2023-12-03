@@ -29,32 +29,32 @@ namespace ISS_BTL
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_dsuser = new System.Windows.Forms.Button();
+            this.btn_listlop = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_adduser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_dsuser
             // 
-            this.button1.Location = new System.Drawing.Point(32, 49);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Danh sách User";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_dsuser.Location = new System.Drawing.Point(32, 49);
+            this.btn_dsuser.Name = "btn_dsuser";
+            this.btn_dsuser.Size = new System.Drawing.Size(100, 23);
+            this.btn_dsuser.TabIndex = 0;
+            this.btn_dsuser.Text = "Danh sách User";
+            this.btn_dsuser.UseVisualStyleBackColor = true;
+            this.btn_dsuser.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btn_listlop
             // 
-            this.button2.Location = new System.Drawing.Point(153, 49);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Danh sách Lớp";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_listlop.Location = new System.Drawing.Point(153, 49);
+            this.btn_listlop.Name = "btn_listlop";
+            this.btn_listlop.Size = new System.Drawing.Size(123, 23);
+            this.btn_listlop.TabIndex = 1;
+            this.btn_listlop.Text = "Danh sách Lớp";
+            this.btn_listlop.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -74,25 +74,26 @@ namespace ISS_BTL
             this.label1.TabIndex = 3;
             this.label1.Text = "Trang chủ";
             // 
-            // button3
+            // btn_adduser
             // 
-            this.button3.Location = new System.Drawing.Point(294, 49);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Thêm User";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_adduser.Location = new System.Drawing.Point(294, 49);
+            this.btn_adduser.Name = "btn_adduser";
+            this.btn_adduser.Size = new System.Drawing.Size(87, 23);
+            this.btn_adduser.TabIndex = 4;
+            this.btn_adduser.Text = "Thêm User";
+            this.btn_adduser.UseVisualStyleBackColor = true;
+            this.btn_adduser.Click += new System.EventHandler(this.btn_adduser_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(587, 364);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btn_adduser);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_listlop);
+            this.Controls.Add(this.btn_dsuser);
             this.Name = "MainForm";
             this.Text = "Admin Page";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -103,10 +104,10 @@ namespace ISS_BTL
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_dsuser;
+        private System.Windows.Forms.Button btn_listlop;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_adduser;
     }
 }

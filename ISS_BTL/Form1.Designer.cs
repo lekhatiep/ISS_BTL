@@ -34,8 +34,6 @@ namespace ISS_BTL
             this.txt_username = new System.Windows.Forms.TextBox();
             this.txt_pwd = new System.Windows.Forms.TextBox();
             this.btn_login = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -72,7 +70,7 @@ namespace ISS_BTL
             // 
             // btn_login
             // 
-            this.btn_login.Location = new System.Drawing.Point(116, 148);
+            this.btn_login.Location = new System.Drawing.Point(116, 119);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(75, 23);
             this.btn_login.TabIndex = 4;
@@ -80,21 +78,11 @@ namespace ISS_BTL
             this.btn_login.UseVisualStyleBackColor = true;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(47, 204);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(347, 164);
-            this.dataGridView1.TabIndex = 5;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 409);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(333, 181);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.txt_pwd);
             this.Controls.Add(this.txt_username);
@@ -102,7 +90,6 @@ namespace ISS_BTL
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,7 +102,6 @@ namespace ISS_BTL
         private System.Windows.Forms.TextBox txt_username;
         private System.Windows.Forms.TextBox txt_pwd;
         private System.Windows.Forms.Button btn_login;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
