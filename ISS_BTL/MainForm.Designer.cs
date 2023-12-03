@@ -55,6 +55,7 @@ namespace ISS_BTL
             this.btn_listlop.TabIndex = 1;
             this.btn_listlop.Text = "Danh sách Lớp";
             this.btn_listlop.UseVisualStyleBackColor = true;
+            this.btn_listlop.Click += new System.EventHandler(this.btn_listlop_Click);
             // 
             // dataGridView1
             // 

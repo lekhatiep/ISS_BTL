@@ -57,5 +57,11 @@ namespace ISS_BTL
             AddUserForm addUserForm = new AddUserForm(OracleDB.conn);
             addUserForm.Show();
         }
+
+        private void btn_listlop_Click(object sender, EventArgs e)
+        {
+            //TO DO Lay danh sach lop
+
+        }
     }
 }
