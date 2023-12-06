@@ -63,5 +63,11 @@ namespace ISS_BTL
             //TO DO Lay danh sach lop
 
         }
+
+        private void btn_myinfo_Click(object sender, EventArgs e)
+        {
+            MyInfo myInfo = new MyInfo(OracleDB.conn);
+            myInfo.Show();
+        }
     }
 }

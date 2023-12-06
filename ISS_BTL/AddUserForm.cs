@@ -38,6 +38,11 @@ namespace ISS_BTL
                 var email = txt_email.Text;
                 var pbname = cbx_pban.GetItemText(this.cbx_pban.SelectedItem);
 
+                if (string.IsNullOrEmpty(uname))
+                {
+                    MessageBox.Show("User name không được trống");
+                    
+                }
                 using (OracleConnection conn = new OracleConnection(connectionstring)) // connect to oracle
                 {
                     var sql = $"execute ADM.CREATE_USER('{uname}','{email}','{sdt}','{ten}','{pbname}')";

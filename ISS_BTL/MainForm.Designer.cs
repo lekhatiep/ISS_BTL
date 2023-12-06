@@ -34,6 +34,7 @@ namespace ISS_BTL
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_adduser = new System.Windows.Forms.Button();
+            this.btn_myinfo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,11 +86,22 @@ namespace ISS_BTL
             this.btn_adduser.UseVisualStyleBackColor = true;
             this.btn_adduser.Click += new System.EventHandler(this.btn_adduser_Click);
             // 
+            // btn_myinfo
+            // 
+            this.btn_myinfo.Location = new System.Drawing.Point(401, 49);
+            this.btn_myinfo.Name = "btn_myinfo";
+            this.btn_myinfo.Size = new System.Drawing.Size(114, 23);
+            this.btn_myinfo.TabIndex = 5;
+            this.btn_myinfo.Text = "Thông tin của tôi";
+            this.btn_myinfo.UseVisualStyleBackColor = true;
+            this.btn_myinfo.Click += new System.EventHandler(this.btn_myinfo_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(587, 364);
+            this.Controls.Add(this.btn_myinfo);
             this.Controls.Add(this.btn_adduser);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -110,5 +122,6 @@ namespace ISS_BTL
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_adduser;
+        private System.Windows.Forms.Button btn_myinfo;
     }
 }
