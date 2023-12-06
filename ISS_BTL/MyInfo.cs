@@ -68,14 +68,12 @@ namespace ISS_BTL
 
                     while (reader.Read())
                     {
-                        txt_name.Text = (reader["USERNAME"] + "");
+                        txt_username.Text = (reader["USERNAME"] + "");
                         txt_email.Text = (reader["EMAIL"] + "");
                         txt_phone.Text = (reader["PHONE"] + "");
                         txt_name.Text = (reader["TEN"] + "");
                         txt_pban.Text = (reader["PHONGBAN"] + "");
                         txt_addr.Text = (reader["ADDR"] + "");
-
-                        
                     }
 
                     conn.Close(); // close the oracle connection
@@ -111,15 +109,9 @@ namespace ISS_BTL
             {
                 string connectionstring = strConn;
 
-                string sql = @$"update ADM.USER_INFO SET 
-                                    EMAIL = '{email}',
-                                    ADDR = '{addr}'
-                                WHERE upper(username) = user
-                                ";
-
                 using (OracleConnection conn = new OracleConnection(connectionstring)) // connect to oracle
                 {
-                    var sqlu =  @"update ADM.USER_INFO SET 
+                    var sqlu = @"update ADM.USER_INFO SET 
                                     EMAIL = :EMAIL,
                                     ADDR = :ADDR
                                 WHERE upper(username) = user";
@@ -128,16 +120,16 @@ namespace ISS_BTL
 
                     OracleCommand cmd = new OracleCommand(sqlu,conn);
                  
-
                     cmd.Parameters.Add(":EMAIL", "varchar2(255)").Value = email;
                     cmd.Parameters.Add(":ADDR", "varchar2(200)").Value = addr;
+                    //cmd.Parameters.Add(":TEN", "Varchar2(200)").Value = ten;
 
-                   
                     var re = cmd.ExecuteNonQuery();
                    
                     conn.Close(); // close the oracle connection
 
-                    MessageBox.Show($"Update thành công" + re);
+                    MessageBox.Show($"Update thành công");
+                    loadDefault();
                 }
 
             }
