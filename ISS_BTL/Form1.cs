@@ -34,7 +34,7 @@ namespace ISS_BTL
                 conn.Open();
 
                 //
-                MainForm mainForm = new MainForm(connectionstring);
+                MainForm mainForm = new MainForm(connectionstring, userName);
                 mainForm.Show();
             }
             catch (OracleException ex)
@@ -44,6 +44,9 @@ namespace ISS_BTL
             
         }
 
-        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
