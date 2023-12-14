@@ -76,5 +76,52 @@ namespace ISS_BTL
             }
            
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_detail_Click(object sender, EventArgs e)
+        {
+            InfoLop infoLop = new InfoLop(conn, txt_lopID.Text);
+            infoLop.Show();
+        }
+
+        private void btn_del_Click(object sender, EventArgs e)
+        {
+            var uname = txt_lopID.Text;
+            DialogResult dialogResult = MessageBox.Show($"Xóa lớp {uname} này ko", "", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes && !string.IsNullOrEmpty(uname))
+            {
+                //do something
+                try
+                {
+                    string connectionstring = conn;
+
+
+                    using (OracleConnection conn = new OracleConnection(connectionstring)) // connect to oracle
+                    {
+                        var sqlDrop = @$"
+                                     DELETE LOP WHERE MALOP={txt_lopID};
+                                   ";
+                        conn.Open(); // open the oracle connection
+                        OracleCommand cmd = new OracleCommand(sqlDrop, conn);
+
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                        loadDefault();
+                    }
+                }
+                catch (OracleException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
     }
 }

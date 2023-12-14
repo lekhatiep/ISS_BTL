@@ -179,5 +179,11 @@ namespace ISS_BTL
             RoleForm roleForm = new RoleForm(OracleDB.conn, username: txt_uname.Text);
             roleForm.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AuditForm auditForm = new AuditForm(OracleDB.conn);
+            auditForm.Show();
+        }
     }
 }

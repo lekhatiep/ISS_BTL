@@ -42,6 +42,9 @@ namespace ISS_BTL
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_username = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btn_dsmh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,7 +99,7 @@ namespace ISS_BTL
             // 
             // btn_myinfo
             // 
-            this.btn_myinfo.Location = new System.Drawing.Point(361, 49);
+            this.btn_myinfo.Location = new System.Drawing.Point(426, 49);
             this.btn_myinfo.Name = "btn_myinfo";
             this.btn_myinfo.Size = new System.Drawing.Size(114, 23);
             this.btn_myinfo.TabIndex = 5;
@@ -170,11 +173,42 @@ namespace ISS_BTL
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(217, 89);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(119, 23);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Thông tin Audit";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(426, 89);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(151, 23);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "Danh sách Đăng kí MH";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // btn_dsmh
+            // 
+            this.btn_dsmh.Location = new System.Drawing.Point(32, 120);
+            this.btn_dsmh.Name = "btn_dsmh";
+            this.btn_dsmh.Size = new System.Drawing.Size(123, 23);
+            this.btn_dsmh.TabIndex = 15;
+            this.btn_dsmh.Text = "Danh sách Môn Học";
+            this.btn_dsmh.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(601, 449);
+            this.Controls.Add(this.btn_dsmh);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbl_username);
             this.Controls.Add(this.label3);
@@ -212,5 +246,8 @@ namespace ISS_BTL
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbl_username;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_dsmh;
     }
 }
