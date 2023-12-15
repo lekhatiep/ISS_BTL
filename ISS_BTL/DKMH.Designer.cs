@@ -46,6 +46,7 @@ namespace ISS_BTL
             this.btn_add.TabIndex = 22;
             this.btn_add.Text = "Đăng ký Mới";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_detail
             // 
@@ -94,7 +95,7 @@ namespace ISS_BTL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(636, 364);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.btn_detail);
             this.Controls.Add(this.btn_del);

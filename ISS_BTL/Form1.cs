@@ -36,6 +36,7 @@ namespace ISS_BTL
                 //
                 MainForm mainForm = new MainForm(connectionstring, userName);
                 mainForm.Show();
+
             }
             catch (OracleException ex)
             {

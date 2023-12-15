@@ -14,7 +14,8 @@ namespace ISS_BTL
         string connectionstring = "";
         public AddLopForm(string conn = "")
         {
-            connectionstring = new OracleDB().OracleConnString("localhost", "1521", "qlmhpdb", "adm", "123");
+            //connectionstring = new OracleDB().OracleConnString("localhost", "1521", "qlmhpdb", "adm", "123");
+            this.connectionstring = conn;
             InitializeComponent();
         }
         private void button1_Click(object sender, EventArgs e)
@@ -28,7 +29,7 @@ namespace ISS_BTL
                 var idMH = (this.cbx_maMH.SelectedItem ?? "NULL").ToString().Split('-')[0];
                 var maMH = cbx_maMH.GetItemText(idMH);
 
-                var idMV = (this.cbx_maGV.SelectedItem ?? "NULL").ToString().Split('-')[0];
+                var idMV = (this.cbx_maGV.SelectedItem ?? "NULL").ToString();
                 var maGV = cbx_maGV.GetItemText(idMV);
 
                 if (string.IsNullOrEmpty(tenLop))
@@ -42,7 +43,7 @@ namespace ISS_BTL
                                 VALUES('{tenLop}',
                                         TO_DATE('{ngayhoc}', 'yyyy/mm/dd hh24:mi'),
                                         {maMH},
-                                        {maGV},
+                                        '{maGV}',
                                         {tienThue})";
 
                     OracleCommand cmd = new OracleCommand(sql, conn);
@@ -61,10 +62,27 @@ namespace ISS_BTL
 
         private void AddLopForm_Load(object sender, EventArgs e)
         {
+            loadDefaultDropGV();
+            loadDefaultDropMonhoc();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cbx_maGV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void loadDefaultDropGV()
+        {
             try
             {
+                string connStr = connectionstring;
                 ngayhocDT.CustomFormat = "yyyy/M/dd hh:mm";
-                using (OracleConnection conn = new OracleConnection(connectionstring)) // connect to oracle
+                using (OracleConnection conn = new OracleConnection(connStr)) // connect to oracle
                 {
                     var sql = $@"SELECT UI.ID, UI.USERNAME
                                 FROM DBA_USERS DU
@@ -79,7 +97,7 @@ namespace ISS_BTL
                         while (rd.Read())
                         {
                             var mgv = rd.GetInt16(0).ToString();
-                            var item = $"{rd["ID"].ToString()} - {rd["USERNAME"].ToString()}";
+                            var item = $"{rd["USERNAME"].ToString()}";
                             cbx_maGV.Items.Add(item);
                         }
                     }
@@ -92,14 +110,32 @@ namespace ISS_BTL
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void loadDefaultDropMonhoc()
         {
-            this.Close();
-        }
+            try
+            {
+                string connStr = connectionstring;
+                using (OracleConnection conn = new OracleConnection(connStr)) // connect to oracle
+                {
+                    var sql = $@"SELECT MAMONHOC, TENMONHOC FROM ADM.MONHOC";
 
-        private void cbx_maGV_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+                    OracleCommand cmd = new OracleCommand(sql, conn);
+                    conn.Open();
+                    using (var rd = cmd.ExecuteReader())
+                    {
+                        while (rd.Read())
+                        {
+                            var item = $"{rd["MAMONHOC"].ToString()} - {rd["TENMONHOC"].ToString()}";
+                            cbx_maMH.Items.Add(item);
+                        }
+                    }
+                    conn.Close(); // close the oracle connection
+                }
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

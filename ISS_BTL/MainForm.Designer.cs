@@ -71,10 +71,10 @@ namespace ISS_BTL
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 148);
+            this.dataGridView1.Location = new System.Drawing.Point(32, 198);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(508, 179);
+            this.dataGridView1.Size = new System.Drawing.Size(545, 180);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
             // 
@@ -91,7 +91,7 @@ namespace ISS_BTL
             // 
             this.btn_adduser.Location = new System.Drawing.Point(217, 49);
             this.btn_adduser.Name = "btn_adduser";
-            this.btn_adduser.Size = new System.Drawing.Size(87, 23);
+            this.btn_adduser.Size = new System.Drawing.Size(119, 23);
             this.btn_adduser.TabIndex = 4;
             this.btn_adduser.Text = "Thêm User";
             this.btn_adduser.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@ namespace ISS_BTL
             // 
             this.btn_myinfo.Location = new System.Drawing.Point(426, 49);
             this.btn_myinfo.Name = "btn_myinfo";
-            this.btn_myinfo.Size = new System.Drawing.Size(114, 23);
+            this.btn_myinfo.Size = new System.Drawing.Size(151, 23);
             this.btn_myinfo.TabIndex = 5;
             this.btn_myinfo.Text = "Thông tin của tôi";
             this.btn_myinfo.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@ namespace ISS_BTL
             // 
             // txt_uname
             // 
-            this.txt_uname.Location = new System.Drawing.Point(32, 347);
+            this.txt_uname.Location = new System.Drawing.Point(32, 397);
             this.txt_uname.Name = "txt_uname";
             this.txt_uname.Size = new System.Drawing.Size(100, 23);
             this.txt_uname.TabIndex = 6;
@@ -117,7 +117,7 @@ namespace ISS_BTL
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(217, 120);
+            this.label2.Location = new System.Drawing.Point(228, 180);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 15);
             this.label2.TabIndex = 7;
@@ -125,7 +125,7 @@ namespace ISS_BTL
             // 
             // btn_del
             // 
-            this.btn_del.Location = new System.Drawing.Point(162, 346);
+            this.btn_del.Location = new System.Drawing.Point(162, 396);
             this.btn_del.Name = "btn_del";
             this.btn_del.Size = new System.Drawing.Size(123, 23);
             this.btn_del.TabIndex = 8;
@@ -135,7 +135,7 @@ namespace ISS_BTL
             // 
             // btn_detail
             // 
-            this.btn_detail.Location = new System.Drawing.Point(304, 346);
+            this.btn_detail.Location = new System.Drawing.Point(304, 396);
             this.btn_detail.Name = "btn_detail";
             this.btn_detail.Size = new System.Drawing.Size(123, 23);
             this.btn_detail.TabIndex = 9;
@@ -165,7 +165,7 @@ namespace ISS_BTL
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(433, 346);
+            this.button1.Location = new System.Drawing.Point(433, 396);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 23);
             this.button1.TabIndex = 12;
@@ -191,15 +191,17 @@ namespace ISS_BTL
             this.button3.TabIndex = 14;
             this.button3.Text = "Danh sách Đăng kí MH";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btn_dsmh
             // 
-            this.btn_dsmh.Location = new System.Drawing.Point(32, 120);
+            this.btn_dsmh.Location = new System.Drawing.Point(32, 129);
             this.btn_dsmh.Name = "btn_dsmh";
             this.btn_dsmh.Size = new System.Drawing.Size(123, 23);
             this.btn_dsmh.TabIndex = 15;
             this.btn_dsmh.Text = "Danh sách Môn Học";
             this.btn_dsmh.UseVisualStyleBackColor = true;
+            this.btn_dsmh.Click += new System.EventHandler(this.btn_dsmh_Click);
             // 
             // MainForm
             // 

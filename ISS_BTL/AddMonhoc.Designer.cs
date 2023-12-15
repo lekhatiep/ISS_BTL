@@ -32,7 +32,7 @@ namespace ISS_BTL
             this.label6 = new System.Windows.Forms.Label();
             this.txt_tenmh = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_soTC = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbx_pban = new System.Windows.Forms.ComboBox();
@@ -44,11 +44,11 @@ namespace ISS_BTL
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(90, 30);
+            this.label6.Location = new System.Drawing.Point(71, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 25);
+            this.label6.Size = new System.Drawing.Size(153, 25);
             this.label6.TabIndex = 28;
-            this.label6.Text = "Thêm lớp";
+            this.label6.Text = "Thêm MON HOC";
             // 
             // txt_tenmh
             // 
@@ -66,12 +66,12 @@ namespace ISS_BTL
             this.label1.TabIndex = 26;
             this.label1.Text = "Tên Mon Hoc";
             // 
-            // textBox1
+            // txt_soTC
             // 
-            this.textBox1.Location = new System.Drawing.Point(105, 110);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 23);
-            this.textBox1.TabIndex = 30;
+            this.txt_soTC.Location = new System.Drawing.Point(105, 110);
+            this.txt_soTC.Name = "txt_soTC";
+            this.txt_soTC.Size = new System.Drawing.Size(144, 23);
+            this.txt_soTC.TabIndex = 30;
             // 
             // label2
             // 
@@ -121,6 +121,7 @@ namespace ISS_BTL
             this.btn_save.TabIndex = 33;
             this.btn_save.Text = "Lưu";
             this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // AddMonhoc
             // 
@@ -131,7 +132,7 @@ namespace ISS_BTL
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.cbx_pban);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_soTC);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txt_tenmh);
@@ -148,7 +149,7 @@ namespace ISS_BTL
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_tenmh;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_soTC;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbx_pban;

@@ -14,8 +14,8 @@ namespace ISS_BTL
         OracleDB OracleDB = new OracleDB();
         
         public MainForm(string conn = "", string UserName = "")
-        { 
-            OracleDB.conn = new OracleDB().OracleConnString("localhost", "1521", "qlmhpdb", "adm", "123"); ;
+        {
+            OracleDB.conn = conn;
             InitializeComponent();
 
             lbl_username.Text = UserName;
@@ -30,7 +30,7 @@ namespace ISS_BTL
         {
             try
             {
-                string connectionstring = new OracleDB().OracleConnString("localhost", "1521", "qlmhpdb", "adm", "123");
+                string connectionstring = OracleDB.conn;
 
                 string sql = "select a.username, email, ten, phone, phongban,created from user_info u join all_users a on a.username = upper(u.username)";
 
@@ -184,6 +184,18 @@ namespace ISS_BTL
         {
             AuditForm auditForm = new AuditForm(OracleDB.conn);
             auditForm.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DKMH dKMH = new DKMH(OracleDB.conn);
+            dKMH.Show();
+        }
+
+        private void btn_dsmh_Click(object sender, EventArgs e)
+        {
+            DanhSachMH danhSachMH = new DanhSachMH(OracleDB.conn);
+            danhSachMH.Show();
         }
     }
 }

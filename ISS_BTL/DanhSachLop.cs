@@ -14,8 +14,8 @@ namespace ISS_BTL
         string conn = "";
         public DanhSachLop(string conn = "")
         {
-            //this.conn = conn;
-            this.conn = new OracleDB().OracleConnString("localhost", "1521", "qlmhpdb", "adm", "123"); ;
+            this.conn = conn;
+            //this.conn = new OracleDB().OracleConnString("localhost", "1521", "qlmhpdb", "adm", "123"); ;
             InitializeComponent();
         }
 
@@ -103,7 +103,7 @@ namespace ISS_BTL
                     using (OracleConnection conn = new OracleConnection(connectionstring)) // connect to oracle
                     {
                         var sqlDrop = @$"
-                                     DELETE LOP WHERE MALOP={txt_lopID};
+                                     DELETE ADM.LOP WHERE MALOP={txt_lopID.Text}
                                    ";
                         conn.Open(); // open the oracle connection
                         OracleCommand cmd = new OracleCommand(sqlDrop, conn);
@@ -122,6 +122,11 @@ namespace ISS_BTL
             {
                 return;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            loadDefault();
         }
     }
 }

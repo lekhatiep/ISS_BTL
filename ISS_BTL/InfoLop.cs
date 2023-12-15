@@ -25,6 +25,7 @@ namespace ISS_BTL
         {
             loadDefault();
             loadDefaultDropGV();
+            loadDefaultDropMonhoc();
         }
         public void loadDefault()
         {
@@ -32,7 +33,7 @@ namespace ISS_BTL
             {
                 string connectionstring = conn;
 
-                string sql = $"SELECT * FROM LOP WHERE MALOP = {malop}";
+                string sql = $"SELECT * FROM ADM.LOP WHERE MALOP = {malop}";
 
                 using (OracleConnection conn = new OracleConnection(connectionstring)) // connect to oracle
                 {
@@ -72,7 +73,7 @@ namespace ISS_BTL
             var idMH = (this.cbx_maMH.SelectedItem ?? "-1 - N/A").ToString().Split('-')[0];
             var maMH = cbx_maMH.GetItemText(idMH);
 
-            var idMV = (this.cbx_maGV.SelectedItem ?? "-1 - N/A").ToString().Split('-')[0];
+            var idMV = (this.cbx_maGV.SelectedItem ?? "-1 - N/A").ToString();
             var maGV = cbx_maGV.GetItemText(idMV);
 
             if (string.IsNullOrEmpty(tenLop))
@@ -102,7 +103,7 @@ namespace ISS_BTL
                     cmd.Parameters.Add(":TENLOP", "Varchar(200)").Value = tenLop;
                     cmd.Parameters.Add(":NGAYHOC", "date").Value = ngayhoc;
                     cmd.Parameters.Add(":MAMONHOC", "number").Value = maMH;
-                    cmd.Parameters.Add(":MAGIAOVIEN", "number").Value = maGV;
+                    cmd.Parameters.Add(":MAGIAOVIEN", "varchar(200)").Value = maGV;
                     cmd.Parameters.Add(":TIENLOP", "float").Value = tienThue;
 
                     var re = cmd.ExecuteNonQuery();
@@ -146,7 +147,7 @@ namespace ISS_BTL
                         while (rd.Read())
                         {
                             var mgv = rd.GetInt16(0).ToString();
-                            var item = $"{rd["ID"].ToString()} - {rd["USERNAME"].ToString()}";
+                            var item = $"{rd["USERNAME"].ToString()}";
                             cbx_maGV.Items.Add(item);
                         }
                     }
@@ -164,14 +165,9 @@ namespace ISS_BTL
             try
             {
                 string connStr = conn;
-                ngayhocDT.CustomFormat = "yyyy/M/dd hh:mm";
                 using (OracleConnection conn = new OracleConnection(connStr)) // connect to oracle
                 {
-                    var sql = $@"SELECT UI.ID, UI.USERNAME
-                                FROM DBA_USERS DU
-                                JOIN DBA_ROLE_PRIVS R ON DU.USERNAME = R.GRANTEE
-                                JOIN user_info UI ON DU.USERNAME = upper(ui.username)
-                                WHERE R.GRANTED_ROLE = 'GIAOVIEN'";
+                    var sql = $@"SELECT MAMONHOC, TENMONHOC FROM ADM.MONHOC";
 
                     OracleCommand cmd = new OracleCommand(sql, conn);
                     conn.Open();
@@ -179,9 +175,8 @@ namespace ISS_BTL
                     {
                         while (rd.Read())
                         {
-                            var mgv = rd.GetInt16(0).ToString();
-                            var item = $"{rd["ID"].ToString()} - {rd["USERNAME"].ToString()}";
-                            cbx_maGV.Items.Add(item);
+                            var item = $"{rd["MAMONHOC"].ToString()} - {rd["TENMONHOC"].ToString()}";
+                            cbx_maMH.Items.Add(item);
                         }
                     }
                     conn.Close(); // close the oracle connection

@@ -57,10 +57,6 @@ namespace ISS_BTL
             // cbx_maMH
             // 
             this.cbx_maMH.FormattingEnabled = true;
-            this.cbx_maMH.Items.AddRange(new object[] {
-            "LÝ",
-            "TOÁN",
-            "CNTT"});
             this.cbx_maMH.Location = new System.Drawing.Point(117, 170);
             this.cbx_maMH.Name = "cbx_maMH";
             this.cbx_maMH.Size = new System.Drawing.Size(144, 23);
