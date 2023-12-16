@@ -115,7 +115,7 @@ namespace ISS_BTL
 
         private void btn_dky_Click(object sender, EventArgs e)
         {
-            if (false)
+            if (checkDaDangky())
             {
                 MessageBox.Show("Đã Đăng Ký rồi");
                 return;
@@ -157,16 +157,17 @@ namespace ISS_BTL
                 string connectionstring = conn;
                 using (OracleConnection conn = new OracleConnection(connectionstring)) // connect to oracle
                 {
-                    var sql = $@"SELECT COUNT(*) FROM DANGKY where malop = {maLop} and masv = user";
+                    var sql = $@"SELECT COUNT(*) FROM ADM.DANGKY where malop = {maLop} and masv = user";
 
                     OracleCommand cmd = new OracleCommand(sql, conn);
                     conn.Open();
-                    int count = (int)cmd.ExecuteScalar();
+                    var count = cmd.ExecuteScalar();
 
-                    if (count>=1)
+                    if (Convert.ToInt16(count) > 0)
                     {
                         return true;
                     }
+                    
 
                     return isDK;
                 }

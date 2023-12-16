@@ -33,8 +33,10 @@ namespace ISS_BTL
             this.btn_detail = new System.Windows.Forms.Button();
             this.btn_del = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_lopID = new System.Windows.Forms.TextBox();
+            this.txt_malopID = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btn_refresh = new System.Windows.Forms.Button();
+            this.txt_masv = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,6 +52,7 @@ namespace ISS_BTL
             // 
             // btn_detail
             // 
+            this.btn_detail.Enabled = false;
             this.btn_detail.Location = new System.Drawing.Point(312, 283);
             this.btn_detail.Name = "btn_detail";
             this.btn_detail.Size = new System.Drawing.Size(123, 23);
@@ -65,6 +68,7 @@ namespace ISS_BTL
             this.btn_del.TabIndex = 20;
             this.btn_del.Text = "Xóa";
             this.btn_del.UseVisualStyleBackColor = true;
+            this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
             // 
             // label2
             // 
@@ -75,12 +79,13 @@ namespace ISS_BTL
             this.label2.TabIndex = 19;
             this.label2.Text = "Danh sách môn học đã đăng ký";
             // 
-            // txt_lopID
+            // txt_malopID
             // 
-            this.txt_lopID.Location = new System.Drawing.Point(40, 284);
-            this.txt_lopID.Name = "txt_lopID";
-            this.txt_lopID.Size = new System.Drawing.Size(100, 23);
-            this.txt_lopID.TabIndex = 18;
+            this.txt_malopID.Location = new System.Drawing.Point(40, 284);
+            this.txt_malopID.Name = "txt_malopID";
+            this.txt_malopID.ReadOnly = true;
+            this.txt_malopID.Size = new System.Drawing.Size(100, 23);
+            this.txt_malopID.TabIndex = 18;
             // 
             // dataGridView2
             // 
@@ -90,20 +95,42 @@ namespace ISS_BTL
             this.dataGridView2.RowTemplate.Height = 25;
             this.dataGridView2.Size = new System.Drawing.Size(521, 179);
             this.dataGridView2.TabIndex = 17;
+            this.dataGridView2.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_CellMouseDown);
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Location = new System.Drawing.Point(40, 56);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(75, 23);
+            this.btn_refresh.TabIndex = 23;
+            this.btn_refresh.Text = "Refresh";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
+            // txt_masv
+            // 
+            this.txt_masv.Location = new System.Drawing.Point(40, 313);
+            this.txt_masv.Name = "txt_masv";
+            this.txt_masv.ReadOnly = true;
+            this.txt_masv.Size = new System.Drawing.Size(100, 23);
+            this.txt_masv.TabIndex = 24;
             // 
             // DKMH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 364);
+            this.Controls.Add(this.txt_masv);
+            this.Controls.Add(this.btn_refresh);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.btn_detail);
             this.Controls.Add(this.btn_del);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txt_lopID);
+            this.Controls.Add(this.txt_malopID);
             this.Controls.Add(this.dataGridView2);
             this.Name = "DKMH";
             this.Text = "l";
+            this.Load += new System.EventHandler(this.DKMH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -116,7 +143,9 @@ namespace ISS_BTL
         private System.Windows.Forms.Button btn_detail;
         private System.Windows.Forms.Button btn_del;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_lopID;
+        private System.Windows.Forms.TextBox txt_malopID;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button btn_refresh;
+        private System.Windows.Forms.TextBox txt_masv;
     }
 }
