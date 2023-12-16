@@ -76,15 +76,19 @@ namespace ISS_BTL
 
         private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
+            txt_uname.Text = string.Empty;
+            var countRow = dataGridView1.Rows.Count - 1;
 
             var rowIndex = e.RowIndex;
+            if (rowIndex < countRow && rowIndex != -1)
+            {
+                DataGridViewRow dataGridViewRow = dataGridView1.Rows[rowIndex];
 
-            DataGridViewRow dataGridViewRow = dataGridView1.Rows[rowIndex];
+                var username = dataGridViewRow.Cells[0].Value.ToString();
+                //MessageBox.Show("mouse click"+ username);
 
-            var username = dataGridViewRow.Cells[0].Value.ToString();
-            //MessageBox.Show("mouse click"+ username);
-
-            txt_uname.Text = username;
+                txt_uname.Text = username;
+            }
         }
 
         private void btn_del_Click(object sender, EventArgs e)
